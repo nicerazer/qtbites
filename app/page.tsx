@@ -1,5 +1,14 @@
 import Image from 'next/image'
  
 export default function Page() {
-  return <Image src="/logoqtbites.jpg" alt="Profile" width={100} height={100} />
+  return (
+    <>
+      <img 
+        src="/desktop.png" 
+        alt="Hedy Lamarr" 
+        class="photo"
+        width="100%"
+      />
+    </>
+  );
 }
