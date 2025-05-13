@@ -6,7 +6,6 @@ export default function Page() {
       <img 
         src="/desktop.png" 
         alt="Hedy Lamarr" 
-        class="photo"
         width="100%"
       />
     </>
