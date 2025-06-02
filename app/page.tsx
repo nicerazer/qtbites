@@ -1,7 +1,12 @@
+'use client';
+
 import Image from 'next/image'
 import '/app/globals.css'
+import { useState } from 'react';
 
 export default function Page() {
+  // let [menuTab, setMenuTab] = useState(1)
+  let [productSelection, setProductSelection] = useState(2)
   return (
     <>
       <div className="mx-auto mt-12 relative">
@@ -56,63 +61,32 @@ export default function Page() {
 
         <section id="menu-gallery" className="bg-[#FFEFF7] py-24 px-28 flex items-start justify-center gap-8 w-full">
           {/* Left: Selection Container */}
-          <div className="flex flex-col gap-2 mt-20 w-full text-xl">
-            <span className='bg-slate-900 text-white w-full px-5 py-3 rounded-xl shadow-[6px_6px_0_#F687DA]'>12 Wonders Of Brownies</span>
-            <span className='px-5 py-3 cursor-pointer'>Soft Butter Cakes</span>
-            <span className='px-5 py-3 cursor-pointer'>Mix Cheese Tart</span>
-            <span className='px-5 py-3 cursor-pointer'>Brookies</span>
-            <span className='px-5 py-3 cursor-pointer'>Baby Cakes</span>
-            <span className='px-5 py-3 cursor-pointer'>Custom Cakes</span>
+          <div className="flex flex-col gap-2 mt-20 w-[24rem] text-xl">
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 1 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(1)}>12 Wonders Of Brownies</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 2 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(2)}>Soft Butter Cakes</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 3 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(3)}>Mix Cheese Tart</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 4 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(4)}>Brookies</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 5 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(5)}>Baby Cakes</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 6 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(6)}>Custom Cakes</span>
           </div>
           {/* Right: Gallery Display Container */}
-          <div>
-            <h2 className="text-4xl mb-8">Menu Desserts</h2>
-            <div className="grid grid-cols-4 gap-6">
-              <div>
-                <img src="menu-brownies/blondies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Blondies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/browkies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Browkies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/cheesy-choc-brownies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Cheesey Choc Brownies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/double-choc-cheese-brownies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Doublce Choc Brownies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/kunafa-pistachio-brownies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Kunafa Pistachio Brownies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/matcha-cheese-brownies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Matcha Cheese Brownies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/nutella-oat-brownies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Nutella Oat Brownies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/pandan-gula-melaka-brownies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Pandan Gula Melaka Brownies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/red-truffle-oreo-brownies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Red Truffle Oreo Brownies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/smorenies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Smorenies</h4>
-              </div>
-              <div>
-                <img src="menu-brownies/tiramisu-brownies.jpg" alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
-                <h4 className="text-xl">Tiramisu Brownies</h4>
-              </div>
-            </div>
+          <div className='w-full'>
+            <h2 className="text-5xl mb-8">Menu Desserts</h2>
+            <ProductWindow productSelection={productSelection} />
+
+            {/* <div className="grid grid-cols-4 gap-6">
+              <ProductCard itemName="Blondies" imageUrl="blondies.jpg" />
+              <ProductCard itemName="Browkies" imageUrl="browkies.jpg" />
+              <ProductCard itemName="Cheesy Choc Brownies" imageUrl="cheesy-choc-brownies.jpg" />
+              <ProductCard itemName="Double Choc Brownies" imageUrl="double-choc-cheese-brownies.jpg" />
+              <ProductCard itemName="Kunafa Pistachio Brownies" imageUrl="kunafa-pistachio-brownies.jpg" />
+              <ProductCard itemName="Matcha Cheese Brownies" imageUrl="matcha-cheese-brownies.jpg" />
+              <ProductCard itemName="Nutella Oat Brownies" imageUrl="nutella-oat-brownies.jpg" />
+              <ProductCard itemName="Pandan Gula Melaka Brownies" imageUrl="pandan-gula-melaka-brownies.jpg" />
+              <ProductCard itemName="Red Truffle Oreo Brownies" imageUrl="red-truffle-oreo-brownies.jpg" />
+              <ProductCard itemName="Smorenies" imageUrl="smorenies.jpg" />
+              <ProductCard itemName="Tiramisu Brownies" imageUrl="tiramisu-brownies.jpg" />
+            </div> */}
           </div>
             {/* Dessert 1 */}
             {/* Dessert 2 */}
@@ -158,4 +132,33 @@ export default function Page() {
       </section>
     </>
   );
+}
+
+function ProductCard({ itemName, imageUrl }) {
+  const itemUrl = "menu-brownies/" + imageUrl;
+  return (
+    <div>
+      <img src={itemUrl} alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
+      <h4 className="text-xl">{itemName}</h4>
+    </div>
+  );
+}
+
+function ProductWindow({ productSelection }) {
+  if (productSelection == 1)
+    return (  
+      <div className="grid grid-cols-4 gap-6">
+        <ProductCard itemName="Blondies" imageUrl="blondies.jpg" />
+        <ProductCard itemName="Browkies" imageUrl="browkies.jpg" />
+        <ProductCard itemName="Cheesy Choc Brownies" imageUrl="cheesy-choc-brownies.jpg" />
+        <ProductCard itemName="Double Choc Brownies" imageUrl="double-choc-cheese-brownies.jpg" />
+        <ProductCard itemName="Kunafa Pistachio Brownies" imageUrl="kunafa-pistachio-brownies.jpg" />
+        <ProductCard itemName="Matcha Cheese Brownies" imageUrl="matcha-cheese-brownies.jpg" />
+        <ProductCard itemName="Nutella Oat Brownies" imageUrl="nutella-oat-brownies.jpg" />
+        <ProductCard itemName="Pandan Gula Melaka Brownies" imageUrl="pandan-gula-melaka-brownies.jpg" />
+        <ProductCard itemName="Red Truffle Oreo Brownies" imageUrl="red-truffle-oreo-brownies.jpg" />
+        <ProductCard itemName="Smorenies" imageUrl="smorenies.jpg" />
+        <ProductCard itemName="Tiramisu Brownies" imageUrl="tiramisu-brownies.jpg" />
+      </div>
+    )
 }
