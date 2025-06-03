@@ -66,8 +66,10 @@ export default function Page() {
             <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 2 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(2)}>Soft Butter Cakes</span>
             <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 3 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(3)}>Mix Cheese Tart</span>
             <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 4 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(4)}>Brookies</span>
-            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 5 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(5)}>Baby Cakes</span>
-            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 6 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(6)}>Custom Cakes</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 5 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(5)}>Bento</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 6 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(6)}>Slice Cakes</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 7 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(7)}>Baby Cakes</span>
+            <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 8 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(8)}>Custom Cakes</span>
           </div>
           {/* Right: Gallery Display Container */}
           <div className='w-full'>
@@ -135,7 +137,7 @@ export default function Page() {
 }
 
 function ProductCard({ itemName, imageUrl }) {
-  const itemUrl = "menu-brownies/" + imageUrl;
+  const itemUrl = imageUrl;
   return (
     <div>
       <img src={itemUrl} alt="product-pic" className="ring-4 mb-4 rounded-2xl" />
@@ -148,17 +150,71 @@ function ProductWindow({ productSelection }) {
   if (productSelection == 1)
     return (  
       <div className="grid grid-cols-4 gap-6">
-        <ProductCard itemName="Blondies" imageUrl="blondies.jpg" />
-        <ProductCard itemName="Browkies" imageUrl="browkies.jpg" />
-        <ProductCard itemName="Cheesy Choc Brownies" imageUrl="cheesy-choc-brownies.jpg" />
-        <ProductCard itemName="Double Choc Brownies" imageUrl="double-choc-cheese-brownies.jpg" />
-        <ProductCard itemName="Kunafa Pistachio Brownies" imageUrl="kunafa-pistachio-brownies.jpg" />
-        <ProductCard itemName="Matcha Cheese Brownies" imageUrl="matcha-cheese-brownies.jpg" />
-        <ProductCard itemName="Nutella Oat Brownies" imageUrl="nutella-oat-brownies.jpg" />
-        <ProductCard itemName="Pandan Gula Melaka Brownies" imageUrl="pandan-gula-melaka-brownies.jpg" />
-        <ProductCard itemName="Red Truffle Oreo Brownies" imageUrl="red-truffle-oreo-brownies.jpg" />
-        <ProductCard itemName="Smorenies" imageUrl="smorenies.jpg" />
-        <ProductCard itemName="Tiramisu Brownies" imageUrl="tiramisu-brownies.jpg" />
+        <ProductCard itemName="Blondies" imageUrl="menu-brownies/blondies.jpg" />
+        <ProductCard itemName="Browkies" imageUrl="menu-brownies/browkies.jpg" />
+        <ProductCard itemName="Cheesy Choc Brownies" imageUrl="menu-brownies/cheesy-choc-brownies.jpg" />
+        <ProductCard itemName="Double Choc Brownies" imageUrl="menu-brownies/double-choc-cheese-brownies.jpg" />
+        <ProductCard itemName="Kunafa Pistachio Brownies" imageUrl="menu-brownies/kunafa-pistachio-brownies.jpg" />
+        <ProductCard itemName="Matcha Cheese Brownies" imageUrl="menu-brownies/matcha-cheese-brownies.jpg" />
+        <ProductCard itemName="Nutella Oat Brownies" imageUrl="menu-brownies/nutella-oat-brownies.jpg" />
+        <ProductCard itemName="Pandan Gula Melaka Brownies" imageUrl="menu-brownies/pandan-gula-melaka-brownies.jpg" />
+        <ProductCard itemName="Red Truffle Oreo Brownies" imageUrl="menu-brownies/red-truffle-oreo-brownies.jpg" />
+        <ProductCard itemName="Smorenies" imageUrl="menu-brownies/smorenies.jpg" />
+        <ProductCard itemName="Tiramisu Brownies" imageUrl="menu-brownies/tiramisu-brownies.jpg" />
+      </div>
+    )
+  else if (productSelection == 2)
+    return (
+      <div className="grid grid-cols-4 gap-6">
+        <ProductCard itemName="Loaf" imageUrl="menu-sbc/1.jpg" />
+        <ProductCard itemName="Square 8x8" imageUrl="menu-sbc/2.jpg" />
+        <ProductCard itemName="Square 8x8" imageUrl="menu-sbc/3.jpg" />
+      </div>
+    )
+  else if (productSelection == 5)
+    return (
+      <div className="grid grid-cols-4 gap-6">
+        <ProductCard itemName="" imageUrl="menu-bento/1.jpg" />
+        <ProductCard itemName="" imageUrl="menu-bento/2.jpg" />
+        <ProductCard itemName="" imageUrl="menu-bento/3.jpg" />
+        <ProductCard itemName="" imageUrl="menu-bento/4.jpg" />
+        <ProductCard itemName="" imageUrl="menu-bento/5.jpg" />
+        <ProductCard itemName="" imageUrl="menu-bento/6.jpg" />
+      </div>
+    )
+  else if (productSelection == 6)
+    return (
+      <div className="grid grid-cols-4 gap-6">
+        <ProductCard itemName="" imageUrl="menu-slicecakes/1.jpg" />
+        <ProductCard itemName="" imageUrl="menu-slicecakes/2.jpg" />
+        <ProductCard itemName="" imageUrl="menu-slicecakes/3.jpg" />
+        <ProductCard itemName="" imageUrl="menu-slicecakes/4.jpg" />
+        <ProductCard itemName="" imageUrl="menu-slicecakes/5.jpg" />
+        <ProductCard itemName="" imageUrl="menu-slicecakes/6.jpg" />
+      </div>
+    )
+  else if (productSelection == 7)
+    return (
+      <div className="grid grid-cols-4 gap-6">
+        <ProductCard itemName="" imageUrl="menu-babycakes/1.jpg" />
+        <ProductCard itemName="" imageUrl="menu-babycakes/2.jpg" />
+        <ProductCard itemName="" imageUrl="menu-babycakes/3.jpg" />
+        <ProductCard itemName="" imageUrl="menu-babycakes/4.jpg" />
+        <ProductCard itemName="" imageUrl="menu-babycakes/5.jpg" />
+        <ProductCard itemName="" imageUrl="menu-babycakes/6.jpg" />
+        <ProductCard itemName="" imageUrl="menu-babycakes/7.jpg" />
+      </div>
+    )
+  else if (productSelection == 8)
+    return (
+      <div className="grid grid-cols-4 gap-6">
+        <ProductCard itemName="" imageUrl="menu-customcakes/1.jpg" />
+        <ProductCard itemName="" imageUrl="menu-customcakes/2.jpg" />
+        <ProductCard itemName="" imageUrl="menu-customcakes/3.jpg" />
+        <ProductCard itemName="" imageUrl="menu-customcakes/4.jpg" />
+        <ProductCard itemName="" imageUrl="menu-customcakes/5.jpg" />
+        <ProductCard itemName="" imageUrl="menu-customcakes/6.jpg" />
+        <ProductCard itemName="" imageUrl="menu-customcakes/7.jpg" />
       </div>
     )
 }
