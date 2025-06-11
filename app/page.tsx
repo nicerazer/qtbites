@@ -1,8 +1,11 @@
 'use client';
 
-import Image from 'next/image'
 import '/app/globals.css'
 import { useState } from 'react';
+import { Meow_Script } from 'next/font/google';
+
+const meowScript = Meow_Script({subsets:['latin'], weight:'400'});
+
 
 export default function Page() {
   // let [menuTab, setMenuTab] = useState(1)
@@ -14,17 +17,17 @@ export default function Page() {
           <img src="logo.png" className="w-32" />
           <div className="mt-12">
             <ul className="flex gap-9 text-lg">
-              <li><a href="" className="text-slate-600 hover:text-slate-900">Utama</a></li>
-              <li><a href="" className="text-slate-600 hover:text-slate-900">Cakes</a></li>
-              <li><a href="" className="text-slate-600 hover:text-slate-900">Desserts</a></li>
-              <li><a href="" className="text-slate-600 hover:text-slate-900">Cafe Signatures</a></li>
-              <li><a href="" className="text-slate-600 hover:text-slate-900">Lokasi</a></li>
+              <li><a target="_blank" href="https://tr.ee/T2XHxvVd6c" className="text-slate-600 hover:text-slate-900">Order</a></li>
+              <li><a href="#section-menu" className="text-slate-600 hover:text-slate-900">Menu</a></li>
+              <li><a href="#section-cafe" className="text-slate-600 hover:text-slate-900">Cafe Signatures</a></li>
+              {/* <li><a href="#section-" className="text-slate-600 hover:text-slate-900">About</a></li> */}
+              <li><a href="#section-location" className="text-slate-600 hover:text-slate-900">Lokasi</a></li>
             </ul>
           </div>
         </nav>
 
         {/* Hero Section */}
-        <section className="mb-16 w-5xl mx-auto">
+        <section className="mb-16 w-5xl mx-auto" id="section-hero">
           <div className="w-full flex flex-row gap-8 items-start">
             {/* Hero left */}
             <div className="flex w-full items-end justify-end mt-8">
@@ -38,7 +41,7 @@ export default function Page() {
             {/* Hero right */}
             <div className="flex items-end w-full h-74">
               <div className="flex items-end flex-col relative w-84 ml-8">
-                <p className="text-xl">my</p>
+                <p className={"text-7xl " + meowScript.className }>my</p>
                 <p className="text-7xl">QTBites</p>
                 <p className="text-lg mt-2 text-right">Kafe & Kek Buatan Tangan, Dihasilkan dengan Cinta dan Kualiti</p>
               </div>
@@ -59,7 +62,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="menu-gallery" className="bg-[#FFEFF7] py-24 px-28 flex items-start justify-center gap-8 w-full">
+        <section id="section-menu" className="bg-[#FFEFF7] py-24 px-28 flex items-start justify-center gap-8 w-full">
           {/* Left: Selection Container */}
           <div className="flex flex-col gap-2 mt-20 w-[24rem] text-xl">
             <span className={'px-5 py-3 cursor-pointer w-full' + (productSelection == 1 ? ' bg-slate-900 text-white rounded-xl shadow-[6px_6px_0_#F687DA]' : "")} onClick={() => setProductSelection(1)}>12 Wonders Of Brownies</span>
@@ -75,28 +78,10 @@ export default function Page() {
           <div className='w-full'>
             <h2 className="text-5xl mb-8">Menu Desserts</h2>
             <ProductWindow productSelection={productSelection} />
-
-            {/* <div className="grid grid-cols-4 gap-6">
-              <ProductCard itemName="Blondies" imageUrl="blondies.jpg" />
-              <ProductCard itemName="Browkies" imageUrl="browkies.jpg" />
-              <ProductCard itemName="Cheesy Choc Brownies" imageUrl="cheesy-choc-brownies.jpg" />
-              <ProductCard itemName="Double Choc Brownies" imageUrl="double-choc-cheese-brownies.jpg" />
-              <ProductCard itemName="Kunafa Pistachio Brownies" imageUrl="kunafa-pistachio-brownies.jpg" />
-              <ProductCard itemName="Matcha Cheese Brownies" imageUrl="matcha-cheese-brownies.jpg" />
-              <ProductCard itemName="Nutella Oat Brownies" imageUrl="nutella-oat-brownies.jpg" />
-              <ProductCard itemName="Pandan Gula Melaka Brownies" imageUrl="pandan-gula-melaka-brownies.jpg" />
-              <ProductCard itemName="Red Truffle Oreo Brownies" imageUrl="red-truffle-oreo-brownies.jpg" />
-              <ProductCard itemName="Smorenies" imageUrl="smorenies.jpg" />
-              <ProductCard itemName="Tiramisu Brownies" imageUrl="tiramisu-brownies.jpg" />
-            </div> */}
           </div>
-            {/* Dessert 1 */}
-            {/* Dessert 2 */}
-            {/* Dessert 3 */}
-            {/* Dessert 4 */}
         </section>
 
-        <section className="mt-52">
+        <section id="section-cafe" className="mt-52 w-5xl mx-auto">
           <h2 className="text-2xl flex gap-3 justify-center mb-16">
             <img src="icon-title-cafe-signatures.png" alt="icon-title-cafe-signatures" className="w-28" />
             Our Cafe<br/>Signatures
@@ -114,7 +99,7 @@ export default function Page() {
         </section>
 
       </div>
-      <section className="w-full mt-24 relative py-56 overflow-hidden">
+      <section id="section-location" className="w-full mt-24 relative py-56 overflow-hidden">
         <div className="w-full h-full blur-md absolute bg-center bg-cover top-0 left-0 scale-105 z-0"></div>
         <div className="w-[40rem] px-12 pt-18 pb-10 bg-[#FFFFFFB3] z-10 relative mx-auto top-0 h-fit rounded-xl shadow-[20px_20px_0_#00000060] outline-4">
           <h2 className="text-center text-4xl">Alamat Kedai Kami</h2>
@@ -132,6 +117,33 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <footer className='bg-[#D045BD] py-16 flex justify-center text-white flex-col items-center'>
+        <div className='mx-auto mb-8'>
+          <div className='flex items-end'>
+            <img src="logo.png" alt="QtBites Logo" className="w-24" />
+            <span className={'text-4xl ' + meowScript.className }>my</span>
+          </div>
+          <span className='text-4xl'>QTBites</span>
+        </div>
+        <div className='text-sm w-56 mb-8'>Kafe & Kek Buatan Tangan, Dihasilkan dengan Cinta dan Kualiti</div>
+        <hr className='w-76' />
+
+        <div className='w-fit mt-8 flex gap-4 mx-auto'>
+          <a href="https://www.facebook.com/myqtbytes/">
+            <img src="/icons/icon-fb.png" alt="Facebook Logo" />
+          </a>
+          <a href="https://www.instagram.com/myqtbites/">
+            <img src="/icons/icon-insta.png" alt="Instagram Logo" />
+          </a>
+          <a href="https://www.tiktok.com/@myqtbites_">
+            <img src="/icons/icon-tt.png" alt="Tiktok Logo" />
+          </a>
+          <a href="https://wa.link/bp87hs">
+            <img src="/icons/icon-whatsapp.png" alt="Whatsapp Logo" />
+          </a>
+        </div>
+        <p className='mx-auto text-center mt-4'>myqtbites @ 2025</p>
+      </footer>
     </>
   );
 }
